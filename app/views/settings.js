@@ -21,7 +21,7 @@ import { SelectComponent } from '../components/select';
 
 import rpc from '../../services/api';
 import { DARK, LIGHT, THEME_MODE } from '../constants/themes';
-import { MAINNET, TESTNET } from '../constants/zcash-network';
+import { MAINNET, TESTNET } from '../constants/zelcash-network';
 import electronStore from '../../config/electron-store';
 import { openExternal } from '../utils/open-external';
 import { isTestnet } from '../../config/is-testnet';
@@ -40,7 +40,7 @@ const EXPORT_PRIV_KEYS_CONTENT = 'Beware: exporting your private keys will allow
 const BACKUP_WALLET_TITLE = 'Backup Wallet';
 const BACKUP_WALLET_CONTENT = 'It is recommended that you backup your wallet often to avoid possible issues arising from data corruption.';
 const CONFIRM_RELAUNCH_CONTENT = "You'll need to restart the application and the internal full node. Are you sure you want to do this?";
-const RUNNING_NON_EMBEDDED_DAEMON_WARNING = 'You are using a separate zcashd process, in order to change the network, you need to restart the process yourself';
+const RUNNING_NON_EMBEDDED_DAEMON_WARNING = 'You are using a separate zelcashd process, in order to change the network, you need to restart the process yourself';
 
 const SHIELDED_ADDRESS_PRIVATE_KEY_PREFIX = isTestnet() ? 'secret-extended-key' : 'SK';
 
@@ -232,14 +232,14 @@ export class SettingsView extends PureComponent<Props, State> {
     const { app } = electron.remote;
 
     if (os.platform() === 'darwin') {
-      return path.join(app.getPath('appData'), 'Zcash');
+      return path.join(app.getPath('appData'), 'Zelcash');
     }
 
     if (os.platform() === 'linux') {
-      return path.join(app.getPath('home'), '.zcash');
+      return path.join(app.getPath('home'), '.zelcash');
     }
 
-    return path.join(app.getPath('appData'), 'Zcash');
+    return path.join(app.getPath('appData'), 'Zelcash');
   };
 
   exportViewKeys = () => {
@@ -317,7 +317,7 @@ export class SettingsView extends PureComponent<Props, State> {
   };
 
   backupWalletDat = async () => {
-    const backupFileName = `zcash-wallet-backup-${dateFns.format(
+    const backupFileName = `zelcash-wallet-backup-${dateFns.format(
       new Date(),
       'YYYY-MM-DD-mm-ss',
     )}.dat`;
@@ -330,8 +330,8 @@ export class SettingsView extends PureComponent<Props, State> {
 
         const WALLET_DIR = this.getWalletFolderPath();
 
-        const zcashDir = isTestnet() ? path.join(WALLET_DIR, 'testnet3') : WALLET_DIR;
-        const walletDatPath = `${zcashDir}/wallet.dat`;
+        const zelcashDir = isTestnet() ? path.join(WALLET_DIR, 'kamiooka-testnet') : WALLET_DIR;
+        const walletDatPath = `${zelcashDir}/wallet.dat`;
 
         const [cannotAccess] = await eres(promisify(fs.access)(walletDatPath));
 
@@ -362,7 +362,7 @@ export class SettingsView extends PureComponent<Props, State> {
       error,
     } = this.state;
 
-    const { zcashNetwork, updateZcashNetwork, embeddedDaemon } = this.props;
+    const { zelcashNetwork, updateZelcashNetwork, embeddedDaemon } = this.props;
 
     const themeOptions = [{ label: 'Dark', value: DARK }, { label: 'Light', value: LIGHT }];
 
@@ -375,14 +375,14 @@ export class SettingsView extends PureComponent<Props, State> {
       <Wrapper>
         <ConfirmDialogComponent
           title='Confirm'
-          onConfirm={() => updateZcashNetwork(zcashNetwork === MAINNET ? TESTNET : MAINNET)}
+          onConfirm={() => updateZelcashNetwork(zelcashNetwork === MAINNET ? TESTNET : MAINNET)}
           showButtons={embeddedDaemon}
           renderTrigger={toggleVisibility => (
             <ThemeSelectWrapper>
-              <SettingsTitle value='Zcash Network' />
+              <SettingsTitle value='Zelcash Network' />
               <SelectComponent
-                onChange={value => (zcashNetwork !== value ? toggleVisibility() : undefined)}
-                value={zcashNetwork}
+                onChange={value => (zelcashNetwork !== value ? toggleVisibility() : undefined)}
+                value={zelcashNetwork}
                 options={networkOptions}
               />
             </ThemeSelectWrapper>

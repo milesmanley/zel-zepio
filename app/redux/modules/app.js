@@ -2,7 +2,7 @@
 
 import electronStore from '../../../config/electron-store';
 
-import { ZCASH_NETWORK, EMBEDDED_DAEMON } from '../../constants/zcash-network';
+import { ZELCASH_NETWORK, EMBEDDED_DAEMON } from '../../constants/zelcash-network';
 import { NODE_SYNC_TYPES } from '../../constants/node-sync-types';
 
 import type { Action } from '../../types/redux';
@@ -12,7 +12,7 @@ export type State = {|
   error: string | null,
   nodeSyncProgress: number,
   nodeSyncType: 'ready' | 'syncing' | 'error',
-  zcashNetwork: string,
+  zelcashNetwork: string,
   embeddedDaemon: boolean,
 |};
 
@@ -52,7 +52,7 @@ const initialState: State = {
   error: null,
   nodeSyncProgress: 0,
   nodeSyncType: NODE_SYNC_TYPES.SYNCING,
-  zcashNetwork: electronStore.get(ZCASH_NETWORK),
+  zelcashNetwork: electronStore.get(ZELCASH_NETWORK),
   embeddedDaemon: electronStore.get(EMBEDDED_DAEMON),
 };
 

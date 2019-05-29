@@ -1,6 +1,6 @@
 // @flow
 
 import electronStore from './electron-store';
-import { ZCASH_NETWORK, MAINNET } from '../app/constants/zcash-network';
+import { ZELCASH_NETWORK, MAINNET } from '../app/constants/zelcash-network';
 
-export const isTestnet = () => electronStore.get(ZCASH_NETWORK) !== MAINNET;
+export const isTestnet = () => electronStore.get(ZELCASH_NETWORK) !== MAINNET;

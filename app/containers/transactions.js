@@ -14,7 +14,7 @@ import {
 import rpc from '../../services/api';
 import { listShieldedTransactions } from '../../services/shielded-transactions';
 import store from '../../config/electron-store';
-import { MIN_CONFIRMATIONS_NUMBER } from '../constants/zcash-network';
+import { MIN_CONFIRMATIONS_NUMBER } from '../constants/zelcash-network';
 
 import { sortByDescend } from '../utils/sort-by-descend';
 
@@ -26,7 +26,7 @@ const mapStateToProps = ({ transactions }: AppState) => ({
   transactions: transactions.list,
   isLoading: transactions.isLoading,
   error: transactions.error,
-  zecPrice: transactions.zecPrice,
+  zelPrice: transactions.zelPrice,
   hasNextPage: transactions.hasNextPage,
 });
 
@@ -34,7 +34,7 @@ export type MapStateToProps = {
   transactions: Transaction[],
   isLoading: boolean,
   error: string | null,
-  zecPrice: number,
+  zelPrice: number,
   hasNextPage: boolean,
 };
 
@@ -82,7 +82,7 @@ const mapDispatchToProps = (dispatch: Dispatch): MapDispatchToProps => ({
     dispatch(
       loadTransactionsSuccess({
         list: formattedTransactions,
-        zecPrice: new BigNumber(store.get('ZEC_DOLLAR_PRICE')).toNumber(),
+        zelPrice: new BigNumber(store.get('ZEL_DOLLAR_PRICE')).toNumber(),
         hasNextPage: Boolean(formattedTransactions.length),
       }),
     );

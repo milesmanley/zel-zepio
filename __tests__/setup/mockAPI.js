@@ -13,7 +13,7 @@ const handler = (server) => {
   console.log('[MOCK RPC API]', server.url); // eslint-disable-line
 
   server.get('/', (req, res) => {
-    res.send('Zcash RPC');
+    res.send('Zelcash RPC');
   });
 
   server.post('/', async (req, res) => {
@@ -116,9 +116,9 @@ const handler = (server) => {
 };
 
 createTestServer({
-  httpPort: '8232',
+  httpPort: '16124',
 }).then(handler);
 
 createTestServer({
-  httpPort: '18232',
+  httpPort: '26124',
 }).then(handler);
