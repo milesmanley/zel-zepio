@@ -1,5 +1,4 @@
 // @flow
-
 import eres from 'eres';
 import { connect } from 'react-redux';
 import { BigNumber } from 'bignumber.js';

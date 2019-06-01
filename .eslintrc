@@ -1,13 +1,16 @@
 {
   "parser": "babel-eslint",
   "extends": ["airbnb", "plugin:flowtype/recommended"],
+  "parserOptions": {
+    "sourceType": ["module"]
+  },
   "env": {
     "browser": true,
     "node": true,
     "mocha": true,
     "jest": true
   },
-  "plugins": ["flowtype", "jest"],
+  "plugins": ["flowtype", "jest", "import"],
   "settings": {
     "flowtype": {
       "onlyFilesWithFlowAnnotation": true
@@ -18,6 +21,7 @@
     "import/prefer-default-export": ["off"],
     "import/no-default-export": 1,
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+    "import/nocycle": "error",
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
