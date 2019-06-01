@@ -20,13 +20,14 @@ List of the main open source libraries and technologies used in building **Zel-Z
 - [zelcashd](https://github.com/zelcash/zelcash): Zcash node daemon
 - [Electron](https://github.com/electron/electron): Desktop application builder
 - [React](https://facebook.github.io/react/): User interface view layer
-- [Redux](http://redux.js.org/): Predictable application state container
+- [Redux](https://redux.js.org/): Predictable application state container
 - [Styled Components](https://www.styled-components.com/): Visual primitives for theming and styling applications
-- [webpack](http://webpack.github.io/): Application module bundler (and more)
-- [Babel](http://babeljs.io/): ES7/JSX transpilling
-- [ESLint](http://eslint.org/): Code linting rules
+- [webpack](https://webpack.github.io/): Application module bundler (and more)
+- [Babel](https://babeljs.io/): ES7/JSX transpilling
+- [ESLint](https://eslint.org/): Code linting rules
 - [Flow](https://flow.org): JavaScript static type checker
 - [Docz](https://docz.site): Documentation builder
+- [BigNumber.js](https://github.com/MikeMcl/bignumber.js#readme): Arbitrary-precision decimal and non-decimal arithmetic with safety
 
 ## Installing and Running From Source
 
@@ -126,5 +127,3 @@ In order to contribute and submit PRs to improve the **Zel-Zepio** codebase, ple
 
 MIT © Zcash Foundation 2019 zfnd.org
 MIT © Zel Foundation 2019 zel.network
-
-
